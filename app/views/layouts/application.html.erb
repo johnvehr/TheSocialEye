@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TheSocialEye</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= link_to current_user.profile_name, edit_user_registration_path %>
+      <%= link_to "Logout", logout_path %>
+      <% else %>
+        <%= link_to "register", register_path %>
+        <%= link_to "signin", login_path %>
+    <% end %>
+    <%= yield %>
+  </div>
+
+</body>
+</html>
